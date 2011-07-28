@@ -1,0 +1,11 @@
+{
+  "name": "Tile this!",
+  "description": "Tile images to verify whether it can be tiled or not. Hover mouse at the top for more options (Tile horizontally, vertically, change background color).",
+  "version": "0.1",
+  "permissions": ["contextMenus"],
+  "background_page": "background.html",
+  "homepage_url": "https://github.com/palaniraja",
+  "icons": {
+    "128" : "Tilethis_128.png"
+  }
+}

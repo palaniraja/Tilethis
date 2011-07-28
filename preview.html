@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Tile this!</title></head>
+<style type="text/css">
+body{
+	margin:0px;
+}
+
+#container{
+width:100%;
+margin:0 auto;
+font-family:Georgia,"Times New Roman",Times,serif;
+}
+
+#menu{
+	width:960px;
+	margin:0 auto;
+	padding:3px;
+	background:#f5f5d2;
+	color: #3767e6;
+	opacity: 0.1;
+	 -webkit-transition: opacity 0.7s ease-in;
+}
+#menu:hover{
+	opacity:1.0;
+}
+label{
+	padding-right:1.5em;
+}
+input{
+	padding-right: 0.75em;
+}
+
+legend{
+	
+}
+
+fieldset .img{
+	float:left;
+	background-color:#878787;
+	height: 80px;
+	margin-right:25px;
+	
+}
+
+</style>
+
+
+
+<body>
+	<div id="container">
+	<div id="menu">
+		<fieldset id="el">
+		<legend>Tile this!</legend>
+		<div class="img">
+		<img src="" height="80" width="80" align="center" id="imgSel" /> 
+		</div>
+		<p>
+			<input type="radio" name="direction" id="both" checked="checked"> <label>Both</label>  </input>
+			<input type="radio" name="direction" id="onlyx"> <label>Only X</label> </input>
+			<input type="radio" name="direction" id="onlyy"> <label>Only Y</label> </input> </p>
+			<p>
+				<input type="radio" name="background" id="black" checked="checked"> <label>Black</label> </input> 
+					<input type="radio" name="background" id="white"> <label>White</label> </input> </p>
+		</fieldset>
+	
+		
+	</div>
+	</div>
+	
+	<script type="text/javascript">
+	
+	var queryString = location.search.substring(1);
+	
+	img = document.getElementById('imgSel');
+	
+	
+	img.src = queryString;
+	
+	document.body.style.backgroundImage = 'url("' + queryString + '")';
+	
+	document.body.backgroundRepeat = "both";
+	document.body.style.backgroundColor = "#000";
+	
+	
+	var menu = document.getElementById('menu');
+	menu.onmouseover = function(){
+		menu.style.opacity = "1.0";
+	}
+	menu.onmouseout = function(){
+		menu.style.opacity = "0.5";
+	}
+	
+	//wire updateTile to inputs
+	var radios = document.getElementsByTagName("input");
+	var i = 0; n = radios.length;
+	
+	
+	while(i < n){
+		radios[i].onclick = updateTile;
+		i++;
+	}
+	
+	function updateTile(){
+		//alert(document.getElementById('onlyy').checked);
+		//alert('updating');
+		document.body.style.backgroundRepeat = "none";
+		document.body.style.backgroundImage = "none";
+	
+	    if(document.getElementById('onlyx').checked){
+			document.body.style.backgroundRepeat = "repeat-x";
+		}else if(document.getElementById('onlyy').checked){
+			document.body.style.backgroundRepeat = "repeat-y";
+		}else{
+			document.body.style.backgroundRepeat = "repeat";
+		}
+
+		if(document.getElementById('black').checked){
+			document.body.style.backgroundColor = "#000";
+		}
+		else if(document.getElementById('white').checked){
+			document.body.style.backgroundColor = "#fff";
+		}
+		
+		document.body.style.backgroundImage = 'url("' + queryString + '")';
+	
+	}
+
+	</script>
+</body></html>
+

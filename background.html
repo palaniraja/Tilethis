@@ -1,0 +1,15 @@
+<script type="text/javascript">
+	
+	function imgClicked(info, tab) {
+	  chrome.tabs.create({url: 'preview.html?'+info.srcUrl});	
+	}
+
+	var contexts = ["image"];
+	for (var i = 0; i < contexts.length; i++) {
+	  var context = contexts[i];
+	  var title = "Tile this ";
+	  var id = chrome.contextMenus.create({"title": title, "contexts":[context],
+	                                       "onclick": imgClicked});
+	}
+
+</script>
