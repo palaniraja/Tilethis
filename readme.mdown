@@ -1,6 +1,6 @@
 #Tile this!
 
-An extension for chrome browser to quickly verify if an image can be used for tile.
+An extension for chrome browser to quickly verify if an image can be tiled.
 
 It is the partial implementation of the idea I posted @ http://dr-palaniraja.blogspot.com/2011/01/idea-vault-tile-this.html
 
